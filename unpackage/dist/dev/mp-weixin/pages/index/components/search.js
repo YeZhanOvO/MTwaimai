@@ -140,99 +140,126 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      // 面板指示点
+      instructdata: [],
+      num: 0,
       // 轮播数组
       lable: [
       [
       {
-        'img': '../../../static/inster/meishi.png',
-        'title': '美食' },
+        img: '../../../static/inster/meishi.png',
+        title: '美食' },
 
       {
-        'img': '../../../static/inster/chaoshi.png',
-        'title': '超市便利' },
+        img: '../../../static/inster/chaoshi.png',
+        title: '超市便利' },
 
       {
-        'img': '../../../static/inster/shuiguo.png',
-        'title': '蔬菜水果' },
+        img: '../../../static/inster/shuiguo.png',
+        title: '蔬菜水果' },
 
       {
-        'img': '../../../static/inster/meituan.png',
-        'title': '美团专送' },
+        img: '../../../static/inster/meituan.png',
+        title: '美团专送' },
 
       {
-        'img': '../../../static/inster/paotui.png',
-        'title': '跑腿代购' },
+        img: '../../../static/inster/paotui.png',
+        title: '跑腿代购' },
 
       {
-        'img': '../../../static/inster/yexiao.png',
-        'title': '夜宵' },
+        img: '../../../static/inster/yexiao.png',
+        title: '夜宵' },
 
       {
-        'img': '../../../static/inster/jintie.png',
-        'title': '津贴联盟' },
+        img: '../../../static/inster/jintie.png',
+        title: '津贴联盟' },
 
       {
-        'img': '../../../static/inster/pinping.png',
-        'title': '甜点饮品' },
+        img: '../../../static/inster/pinping.png',
+        title: '甜点饮品' },
 
       {
-        'img': '../../../static/inster/shaokao.png',
-        'title': '龙虾烧烤' },
+        img: '../../../static/inster/shaokao.png',
+        title: '龙虾烧烤' },
 
       {
-        'img': '../../../static/inster/dangao.png',
-        'title': '甜蜜蛋糕' }],
+        img: '../../../static/inster/dangao.png',
+        title: '甜蜜蛋糕' }],
 
 
       [
       {
-        'img': '../../../static/inster/hanbao.png',
-        'title': '汉堡披萨' },
+        img: '../../../static/inster/hanbao.png',
+        title: '汉堡披萨' },
 
       {
-        'img': '../../../static/inster/liaoli.png',
-        'title': '日韩料理' },
+        img: '../../../static/inster/liaoli.png',
+        title: '日韩料理' },
 
       {
-        'img': '../../../static/inster/malatang.png',
-        'title': '麻辣烫' },
+        img: '../../../static/inster/malatang.png',
+        title: '麻辣烫' },
 
       {
-        'img': '../../../static/inster/kuaican.png',
-        'title': '快食简餐' },
+        img: '../../../static/inster/kuaican.png',
+        title: '快食简餐' },
 
       {
-        'img': '../../../static/inster/xianhua.png',
-        'title': '浪漫鲜花' },
+        img: '../../../static/inster/xianhua.png',
+        title: '浪漫鲜花' },
 
       {
-        'img': '../../../static/inster/lazi.png',
-        'title': '无辣不欢' },
+        img: '../../../static/inster/lazi.png',
+        title: '无辣不欢' },
 
       {
-        'img': '../../../static/inster/jiaozi.png',
-        'title': '饺子馆' },
+        img: '../../../static/inster/jiaozi.png',
+        title: '饺子馆' },
 
       {
-        'img': '../../../static/inster/xiaochi.png',
-        'title': '小吃馆' },
+        img: '../../../static/inster/xiaochi.png',
+        title: '小吃馆' },
 
       {
-        'img': '../../../static/inster/baofan.png',
-        'title': '煲仔饭' },
+        img: '../../../static/inster/baofan.png',
+        title: '煲仔饭' },
 
       {
-        'img': '../../../static/inster/qita.png',
-        'title': '其他' }]] };
+        img: '../../../static/inster/qita.png',
+        title: '其他' }]] };
 
 
 
 
-  } };exports.default = _default;
+  },
+  created: function created() {
+    for (var i = 0; i < this.lable.length; i++) {//根据当前数组的长度，动态添加滑块的数量
+      this.instructdata.push('');
+    }
+  },
+  methods: {
+    // 滑块事件
+    bannerfun: function bannerfun(e) {
+      this.num = e.detail.current;
+    } } };exports.default = _default;
 
 /***/ }),
 

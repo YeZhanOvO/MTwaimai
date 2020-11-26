@@ -1,7 +1,7 @@
 <template>
 	<view class="contenting">
 		<Search></Search>
-		<Preference></Preference>
+		<Preference :preferdata="preferdata"></Preference>
 		<Title></Title>
 		<Delicacy></Delicacy>
 		<TakeOut></TakeOut>
@@ -14,10 +14,12 @@
 	import Title from './components/title.vue'
 	import Delicacy from './components/delicacy.vue'
 	import TakeOut from './components/takeout.vue'
+	import {rq} from '../../request.js'
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				preferdata:[]
 			}
 		},
 		components:{
@@ -27,11 +29,15 @@
 			Delicacy,
 			TakeOut
 		},
-		onLoad() {
-
-		},
 		methods: {
-
+			getPrefer(){
+				rq('GET','forshop/getprefer').then((res)=>{
+					this.preferdata=res.data
+				})
+			}
+		},
+		mounted(){
+			this.getPrefer()
 		}
 	}
 </script>

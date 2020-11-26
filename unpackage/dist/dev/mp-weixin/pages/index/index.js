@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/index/components/search */ "pages/index/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 30));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Preference = function Preference() {__webpack_require__.e(/*! require.ensure | pages/index/components/preference */ "pages/index/components/preference").then((function () {return resolve(__webpack_require__(/*! ./components/preference.vue */ 35));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Title = function Title() {__webpack_require__.e(/*! require.ensure | pages/index/components/title */ "pages/index/components/title").then((function () {return resolve(__webpack_require__(/*! ./components/title.vue */ 50));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Delicacy = function Delicacy() {__webpack_require__.e(/*! require.ensure | pages/index/components/delicacy */ "pages/index/components/delicacy").then((function () {return resolve(__webpack_require__(/*! ./components/delicacy.vue */ 40));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TakeOut = function TakeOut() {__webpack_require__.e(/*! require.ensure | pages/index/components/takeout */ "pages/index/components/takeout").then((function () {return resolve(__webpack_require__(/*! ./components/takeout.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -146,10 +146,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _request = __webpack_require__(/*! ../../request.js */ 63);var Search = function Search() {__webpack_require__.e(/*! require.ensure | pages/index/components/search */ "pages/index/components/search").then((function () {return resolve(__webpack_require__(/*! ./components/search.vue */ 30));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Preference = function Preference() {__webpack_require__.e(/*! require.ensure | pages/index/components/preference */ "pages/index/components/preference").then((function () {return resolve(__webpack_require__(/*! ./components/preference.vue */ 35));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Title = function Title() {__webpack_require__.e(/*! require.ensure | pages/index/components/title */ "pages/index/components/title").then((function () {return resolve(__webpack_require__(/*! ./components/title.vue */ 50));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Delicacy = function Delicacy() {__webpack_require__.e(/*! require.ensure | pages/index/components/delicacy */ "pages/index/components/delicacy").then((function () {return resolve(__webpack_require__(/*! ./components/delicacy.vue */ 40));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var TakeOut = function TakeOut() {__webpack_require__.e(/*! require.ensure | pages/index/components/takeout */ "pages/index/components/takeout").then((function () {return resolve(__webpack_require__(/*! ./components/takeout.vue */ 45));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
-      title: 'Hello' };
+      title: 'Hello',
+      preferdata: [] };
 
   },
   components: {
@@ -159,10 +161,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     Delicacy: Delicacy,
     TakeOut: TakeOut },
 
-  onLoad: function onLoad() {
+  methods: {
+    getPrefer: function getPrefer() {var _this = this;
+      (0, _request.rq)('GET', 'forshop/getprefer').then(function (res) {
+        _this.preferdata = res.data;
+      });
+    } },
 
-  },
-  methods: {} };exports.default = _default;
+  mounted: function mounted() {
+    this.getPrefer();
+  } };exports.default = _default;
 
 /***/ }),
 
