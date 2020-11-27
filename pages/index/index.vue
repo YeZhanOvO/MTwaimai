@@ -30,11 +30,16 @@
 			TakeOut
 		},
 		methods: {
+			// 为你优选
 			getPrefer(){
 				rq('GET','forshop/getprefer').then((res)=>{
 					this.preferdata=res.data
 				})
 			}
+		},
+		// 监听页面滚动距离
+		onPageScroll(e){
+			console.log(e)
 		},
 		mounted(){
 			this.getPrefer()

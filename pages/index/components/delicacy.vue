@@ -7,10 +7,11 @@
 					<text>{{ synthesize }}</text>
 					<image src="../../../static/coen/paixu.png" mode="widthFix"></image>
 				</view>
-				<view class="delica-grow">销量高</view>
-				<view class="delica-grow">速度快</view>
-				<view class="delica-grow">津贴联盟</view>
-				<view class="delica-list delica-right">
+				
+				<view class="delica-grow" @click="saLes()">销量高</view>
+				<view class="delica-grow" @click="saLes()">速度快</view>
+				<view class="delica-grow" @click="saLes()">津贴联盟</view>
+				<view class="delica-list delica-right" @click="scReen()">
 					<text>筛选</text>
 					<image src="../../../static/coen/shaixuan.png" mode="widthFix"></image>
 				</view>
@@ -46,7 +47,7 @@
 				</view>
 			</view>
 		</view>
-				<!-- 遮罩层 -->
+		<!-- 遮罩层 -->
 		<view class="yin" v-show="mask" @click="hideMask()"></view>
 	</view>
 </template>
@@ -57,14 +58,14 @@ export default {
 		return {
 			synthesize: '综合排序',
 			drop: false,
-			sortmen: false,
+			sortmen: false,	
 			mask: false,
 			num: 0,
 			sortlist: [
 				{
 					name: '综合排序',
 					screen: '_id',
-					nums: 1,
+					nums: 1
 				},
 				{
 					name: '起送价最低',
@@ -143,21 +144,35 @@ export default {
 		// 综合排序
 		multiple() {
 			this.drop = !this.drop; //控制综合排序的显示与隐藏
-			this.showMask() //显示遮罩层
+			this.sortmen=false //隐藏筛选
+			this.showMask(); //显示遮罩层
 		},
 		sortClick(index, name) {
 			this.synthesize = name; // 名称随着点击改变
 			this.num = index; //动态绑定class 点击响应位置高亮显示
-			this.drop = false; //隐藏筛选框
-			this.hideMask() //隐藏遮罩层
+			this.hideMask(); //隐藏遮罩层
 		},
-		hideMask(){//隐藏遮罩层
-		setTimeout(()=>{
-			this.mask = false; 
-		},200)
+		showMask() {
+			//显示遮罩层
+			setTimeout(() => {
+				this.mask = true;
+			}, 200);
 		},
-		showMask(){//显示遮罩层
-			this.mask = true
+		hideMask() {
+			//隐藏全部
+			this.mask = false;
+			this.drop = false;
+			this.sortmen=false;	
+		},
+		//销量 津贴联盟 速度快
+		saLes(){
+			this.hideMask()
+		},
+		// 筛选
+		scReen(){
+			this.sortmen=true //显示筛选
+			this.drop=false //隐藏综合排序
+			this.showMask()//显示遮罩层
 		}
 	}
 };
